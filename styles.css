@@ -437,3 +437,37 @@ body:after{opacity:.012}
  linear-gradient(135deg,#0b1109,#050705)}
 .reveal{transform:translateY(32px);filter:blur(2px)}
 @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+
+
+/* ===== GREEN FRAME + HERO BALANCE ===== */
+.video-card,
+.work-image,
+.work-media,
+.project-media{
+  border:1px solid rgba(155,201,75,.34)!important;
+  box-shadow:0 0 0 1px rgba(155,201,75,.055),0 22px 50px rgba(0,0,0,.34)!important;
+}
+.video-card:hover,
+.work-card:hover .video-card{
+  border-color:rgba(155,201,75,.62)!important;
+  box-shadow:0 0 0 1px rgba(155,201,75,.12),0 24px 55px rgba(0,0,0,.4)!important;
+}
+.hero-visual{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-visual .product-shape{
+  left:50%!important;
+  right:auto!important;
+  transform:translateX(-50%)!important;
+}
+.hero-media-one{transform:translate(-50%, -50%)!important}
+.hero-media-two{transform:translate(-50%, -50%)!important}
+.hero-media-three{transform:translate(-50%, -50%)!important}
+.product-shape{
+  opacity:.82;
+}
+@media(max-width:800px){
+  .hero-visual .product-shape{left:50%!important}
+}
