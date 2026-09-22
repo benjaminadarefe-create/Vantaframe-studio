@@ -293,3 +293,110 @@ footer{padding:28px 4.5vw;background:#0b1009;color:#aab4a5;border-top:1px solid 
   .hero,.product-shape,.orb-a,.orb-b,.orb-c,.ticker-track,.hero-media-one,.hero-media-two,.hero-media-three,.hero-visual:before{animation:none}
   .reveal,.work-card.reveal{opacity:1;transform:none;filter:none;transition:none}
 }
+
+
+/* ===== VANTAFRAME DARK EDITION ===== */
+:root{
+  --bg:#070907;
+  --surface:#0e120d;
+  --text:#f3f6ed;
+  --muted:#9aa394;
+  --line:rgba(224,238,211,.12);
+  --green:#9bc94b;
+  --green-bright:#c9ef78;
+  --dark:#050705;
+  --dark-2:#0d150b;
+  --shadow:0 30px 90px rgba(0,0,0,.45);
+  --ink:#f3f6ed;
+  --accent:#9bc94b;
+  --accent-2:#c9ef78;
+  --deep:#050705;
+  --deep-2:#0d150b;
+}
+html,body{background:#070907;color:var(--text)}
+body:before{opacity:.035}
+body:after{opacity:.025;background:radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 1px);background-size:5px 5px}
+
+.nav{
+  background:rgba(7,9,7,.72);
+  border-bottom:1px solid rgba(224,238,211,.09);
+  color:#f3f6ed;
+}
+.nav.scrolled{background:rgba(7,9,7,.94);box-shadow:0 15px 40px rgba(0,0,0,.35)}
+nav{color:#aeb8a8}
+.nav-cta{border-color:rgba(224,238,211,.2);background:rgba(255,255,255,.035)}
+.nav-cta:hover{background:#f3f6ed;border-color:#f3f6ed;color:#070907}
+
+.hero{
+  background:
+    radial-gradient(circle at 76% 20%,rgba(135,190,53,.16),transparent 22%),
+    radial-gradient(circle at 95% 85%,rgba(71,108,31,.12),transparent 28%),
+    linear-gradient(125deg,#070907,#0b1109 52%,#111a0d);
+}
+.hero h1{color:#f4f7ef}
+.hero h1 em{color:#f4f7ef}
+.hero-text{color:#a3ad9d}
+.eyebrow{color:#899582}
+.ghost{color:#edf3e7;background:rgba(255,255,255,.035);border-color:rgba(224,238,211,.18)}
+.ghost:hover{background:#f3f6ed;color:#070907}
+.primary{background:#a1cf50;color:#071006;box-shadow:0 18px 50px rgba(126,180,51,.2)}
+.primary:hover{background:#c3eb73;color:#071006}
+.hero:after{border-color:rgba(155,201,75,.16)}
+
+.visual-card{
+  background:linear-gradient(150deg,rgba(24,31,21,.92),rgba(12,17,11,.9));
+  border-color:rgba(224,238,211,.16);
+  box-shadow:0 45px 110px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.07);
+}
+.card-top,.card-bottom{color:#8e9a88}
+.card-bottom strong{color:#e9f0e3}
+.product-shape{box-shadow:0 0 130px rgba(145,202,55,.28)}
+.orb-a{opacity:.18}.orb-b{opacity:.16}.orb-c{opacity:.18}
+.hero-media{border-color:rgba(224,238,211,.18);box-shadow:0 30px 70px rgba(0,0,0,.5)}
+
+.ticker{background:#0d130b;color:#dce8d4;border-color:rgba(224,238,211,.08)}
+.ticker span{color:#dce8d4}
+
+.work{background:#080a08}
+.section h2,.category-heading h3,.work-info h3,.service h3,.about h2{color:#f1f5ec}
+.section-head>p,.category-heading>p,.work-info p,.service p,.about>div:last-child>p{color:#929d8d}
+.category-heading{border-color:rgba(224,238,211,.11)}
+.work-image{background:#050705;border-color:rgba(224,238,211,.12);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.video-card{background:#020302}
+.video-card video{background:#020302}
+.video-label{color:#fff}
+.work-card:hover .video-card{box-shadow:0 35px 75px rgba(0,0,0,.55)}
+.work-image:before{background:linear-gradient(135deg,var(--green-bright),transparent 40%,transparent 60%,var(--green-bright))}
+.single-feature .work-image{box-shadow:0 25px 75px rgba(0,0,0,.42)}
+
+.services{background:#0d140b;border-color:rgba(224,238,211,.1)}
+.service-list{border-color:rgba(224,238,211,.11)}
+.service{border-color:rgba(224,238,211,.1)}
+.service span{color:#788572}
+.service:hover{background:rgba(155,201,75,.045)}
+
+.about{background:#0a0d09;border-color:rgba(224,238,211,.1)}
+.about-mark{color:#182317}
+.about:hover .about-mark{color:#24351d}
+.about .eyebrow{color:#879583}
+
+.contact{
+  background:
+    radial-gradient(circle at 50% 0%,rgba(155,201,75,.15),transparent 28%),
+    linear-gradient(135deg,#0c1409,#050705);
+  border-color:rgba(224,238,211,.1);
+}
+.contact-note{color:#849080}
+.contact-link{color:#edf4e6}
+
+footer{background:#050705;color:#7f8b7a;border-color:rgba(224,238,211,.09)}
+
+.preloader{background:#050705}
+.cursor-dot{background:#eaf2e2}
+.cursor-ring{border-color:rgba(224,238,211,.35)}
+.cursor-ring.cursor-big{border-color:var(--green-bright)}
+.scroll-progress{background:var(--green-bright)}
+
+@media(max-width:800px){
+  .nav{background:rgba(7,9,7,.9)}
+}
