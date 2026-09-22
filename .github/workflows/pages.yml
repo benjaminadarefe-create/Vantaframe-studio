@@ -23,12 +23,29 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Convert portfolio videos to web-ready MP4
+        shell: bash
+        run: |
+          set -e
+          mkdir -p web-videos
+          ffmpeg -hide_banner -loglevel error -y -i "videos/Lamborghini .MOV" -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "web-videos/Lamborghini.mp4"
+          ffmpeg -hide_banner -loglevel error -y -i "videos/BMW .MOV" -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "web-videos/BMW.mp4"
+          ffmpeg -hide_banner -loglevel error -y -i "videos/Mercedes.MOV" -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "web-videos/Mercedes.mp4"
+          ffmpeg -hide_banner -loglevel error -y -i "videos/Car detailing .MOV" -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "web-videos/Car-detailing.mp4"
+          ffmpeg -hide_banner -loglevel error -y -i "videos/Luxury homes .MOV" -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "web-videos/Luxury-homes.mp4"
+          ffmpeg -hide_banner -loglevel error -y -i "videos/Perfume ads.MOV" -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "web-videos/Perfume-ads.mp4"
+          ffmpeg -hide_banner -loglevel error -y -i "videos/Mk tech .MOV" -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "web-videos/Mk-tech.mp4"
+          ffmpeg -hide_banner -loglevel error -y -i "videos/Smart home automated.MOV" -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "web-videos/Smart-home-automated.mp4"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
