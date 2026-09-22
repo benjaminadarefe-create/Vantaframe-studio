@@ -24,6 +24,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install FFmpeg
+        shell: bash
+        run: |
+          set -e
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
       - name: Convert portfolio videos to web-ready MP4
         shell: bash
         run: |
