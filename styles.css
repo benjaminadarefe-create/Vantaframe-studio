@@ -471,3 +471,5 @@ body:after{opacity:.012}
 @media(max-width:800px){
   .hero-visual .product-shape{left:50%!important}
 }
+
+.contact-links{display:flex;justify-content:center;align-items:center;gap:28px;flex-wrap:wrap}.contact-links .contact-link{display:inline-flex;align-items:center}.contact-links .contact-link span{margin-left:8px}
