@@ -40,4 +40,129 @@
       else card.style.transform="rotate(5deg)";
     });
   });
+  /* Vantaframe AI assistant — static lead-generation bot.
+     No private API key is exposed in the browser. */
+  const botStylesReady = document.getElementById("vf-bot-root");
+  if(!botStylesReady){
+    const bot=document.createElement("div");
+    bot.id="vf-bot-root";
+    bot.innerHTML=`
+      <button class="vf-bot-launch" aria-label="Open Vantaframe AI assistant">
+        <span class="vf-bot-dot"></span><span class="vf-bot-spark">✦</span>
+      </button>
+      <section class="vf-bot-panel" aria-label="Vantaframe AI assistant" aria-hidden="true">
+        <header class="vf-bot-head">
+          <div><span class="vf-bot-status"></span><strong>Vantaframe AI</strong><small>AI advertising assistant</small></div>
+          <button class="vf-bot-close" aria-label="Close assistant">×</button>
+        </header>
+        <div class="vf-bot-messages"></div>
+        <div class="vf-bot-chips">
+          <button data-q="What does Vantaframe Studio do?">What do you do?</button>
+          <button data-q="How much does an AI ad cost?">Pricing</button>
+          <button data-q="I want an AI ad for my business.">I want an ad</button>
+        </div>
+        <form class="vf-bot-form">
+          <input class="vf-bot-input" autocomplete="off" placeholder="Ask Vantaframe AI..." aria-label="Message"/>
+          <button type="submit" aria-label="Send message">↑</button>
+        </form>
+      </section>`;
+    document.body.appendChild(bot);
+
+    const panel=bot.querySelector(".vf-bot-panel");
+    const launch=bot.querySelector(".vf-bot-launch");
+    const close=bot.querySelector(".vf-bot-close");
+    const messages=bot.querySelector(".vf-bot-messages");
+    const form=bot.querySelector(".vf-bot-form");
+    const input=bot.querySelector(".vf-bot-input");
+    const chips=bot.querySelector(".vf-bot-chips");
+    const lead={name:"",business:"",need:""};
+
+    function addMessage(text,who="bot",actions=[]){
+      const row=document.createElement("div");
+      row.className="vf-bot-msg "+who;
+      const bubble=document.createElement("div");
+      bubble.className="vf-bot-bubble";
+      bubble.textContent=text;
+      row.appendChild(bubble);
+      if(actions.length){
+        const a=document.createElement("div"); a.className="vf-bot-actions";
+        actions.forEach(item=>{
+          const b=document.createElement("button"); b.type="button"; b.textContent=item.label;
+          b.addEventListener("click",item.onClick); a.appendChild(b);
+        });
+        row.appendChild(a);
+      }
+      messages.appendChild(row);
+      messages.scrollTop=messages.scrollHeight;
+    }
+    function openBot(){
+      panel.classList.add("open"); panel.setAttribute("aria-hidden","false"); launch.classList.add("hidden");
+      if(!messages.children.length){
+        addMessage("Hi! I’m Vantaframe AI. I can explain our AI advertising services, give basic pricing guidance, and help you start a project.");
+      }
+      setTimeout(()=>input.focus(),150);
+    }
+    function closeBot(){panel.classList.remove("open");panel.setAttribute("aria-hidden","true");launch.classList.remove("hidden");}
+    function send(text){
+      text=(text||"").trim(); if(!text)return;
+      addMessage(text,"user"); input.value="";
+      setTimeout(()=>reply(text),220);
+    }
+    function reply(raw){
+      const q=raw.toLowerCase();
+      if(q.includes("price")||q.includes("cost")||q.includes("how much")||q.includes("pricing")){
+        addMessage("Pricing depends on the ad length, number of scenes, AI production, editing, voice-over, and revisions. I can help you get a project quote from Vantaframe Studio.");
+        addMessage("To start, tell me your name and the business you want to advertise.");
+        lead.need="pricing";
+        return;
+      }
+      if(q.includes("what do you")||q.includes("what is vantaframe")||q.includes("services")||q.includes("offer")){
+        addMessage("Vantaframe Studio creates premium AI-powered advertisements and short-form commercial content for businesses. We can create product ads, service ads, social media commercials, real-estate promos, automotive ads, and more.");
+        return;
+      }
+      if(q.includes("ai ad")||q.includes("advert")||q.includes("business")||q.includes("want an ad")||q.includes("need an ad")){
+        addMessage("Absolutely. Tell me your name, your business name, and what you want to advertise. I’ll prepare the details for a quick handoff to the Vantaframe team.");
+        lead.need=raw;
+        return;
+      }
+      if(q.includes("contact")||q.includes("whatsapp")||q.includes("talk")||q.includes("human")){
+        addMessage("You can contact Vantaframe Studio directly on WhatsApp. I can also prepare a message for you with the details you give me.", "bot", [{
+          label:"Open WhatsApp",
+          onClick:()=>window.open("https://wa.me/2348102992744?text="+encodeURIComponent(inquiryMessage)," _blank")
+        }]);
+        return;
+      }
+      if(q.includes("video")||q.includes("commercial")||q.includes("ugc")||q.includes("reels")||q.includes("tiktok")){
+        addMessage("Yes. Vantaframe Studio can create short-form AI video ads designed for platforms like TikTok, Instagram, YouTube Shorts, and WhatsApp.");
+        return;
+      }
+      if(q.includes("nigeria")||q.includes("nigerian")){
+        addMessage("Yes. Vantaframe can create ads tailored to Nigerian businesses, locations, audiences, and brand styles.");
+        return;
+      }
+      if(lead.name==="" && raw.split(/\\s+/).length<=5){
+        lead.name=raw; addMessage("Nice to meet you, "+raw+"! What’s the name of your business?");
+        return;
+      }
+      if(lead.name && !lead.business){
+        lead.business=raw; addMessage("Got it. What product or service would you like the ad to promote?");
+        return;
+      }
+      if(lead.business && !lead.need){
+        lead.need=raw; addMessage("Perfect. I have the basics. You can send these details to Vantaframe Studio on WhatsApp to continue.", "bot", [{
+          label:"Send to WhatsApp",
+          onClick:()=>{
+            const msg="Hi Vantaframe Studio, I’d like an AI advertisement. My name is "+lead.name+". My business is "+lead.business+". I want to promote: "+lead.need+". I found you through your website.";
+            window.open("https://wa.me/2348102992744?text="+encodeURIComponent(msg),"_blank");
+          }
+        }]);
+        return;
+      }
+      addMessage("I can help with Vantaframe’s AI advertising services, pricing guidance, project details, and contacting the team. What would you like to know?");
+    }
+    launch.addEventListener("click",openBot); close.addEventListener("click",closeBot);
+    form.addEventListener("submit",e=>{e.preventDefault();send(input.value);});
+    chips.addEventListener("click",e=>{if(e.target.matches("button"))send(e.target.dataset.q);});
+  }
+
 })();
