@@ -106,3 +106,26 @@ nav a:after{background:var(--green-bright)!important}
 @media(prefers-reduced-motion:reduce){
   .vf-icon-btn{animation:none!important}
 }
+
+/* Vantaframe AI assistant */
+#vf-bot-root{position:fixed;right:22px;bottom:22px;z-index:99999;font-family:"DM Sans",sans-serif}
+.vf-bot-launch{width:62px;height:62px;border:1px solid rgba(199,238,108,.65);border-radius:50%;background:var(--green-bright);color:#0d0f09;box-shadow:0 16px 45px rgba(0,0,0,.45),0 0 30px rgba(199,238,108,.18);font-size:25px;cursor:pointer;position:relative}
+.vf-bot-launch:hover{transform:translateY(-3px) scale(1.04)}
+.vf-bot-launch.hidden{display:none}
+.vf-bot-dot{position:absolute;width:9px;height:9px;border-radius:50%;background:#173000;right:13px;top:12px;box-shadow:0 0 0 3px rgba(199,238,108,.35)}
+.vf-bot-panel{display:none;width:min(370px,calc(100vw - 28px));height:min(590px,calc(100vh - 45px));position:absolute;right:0;bottom:0;overflow:hidden;border:1px solid rgba(199,238,108,.35);border-radius:22px;background:rgba(10,13,7,.97);box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 45px rgba(139,187,47,.08);backdrop-filter:blur(20px)}
+.vf-bot-panel.open{display:flex;flex-direction:column}
+.vf-bot-head{padding:18px 18px 15px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,rgba(199,238,108,.09),transparent)}
+.vf-bot-head strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:16px}.vf-bot-head small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.vf-bot-status{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green-bright);margin-right:8px;box-shadow:0 0 10px rgba(199,238,108,.7)}
+.vf-bot-close{border:0;background:transparent;color:var(--muted);font-size:27px;cursor:pointer}
+.vf-bot-messages{flex:1;overflow:auto;padding:18px 15px 8px;scroll-behavior:smooth}
+.vf-bot-msg{display:flex;flex-direction:column;margin:0 0 13px;max-width:88%}.vf-bot-msg.user{margin-left:auto;align-items:flex-end}
+.vf-bot-bubble{padding:11px 13px;border-radius:15px 15px 15px 5px;background:#171d10;color:var(--text);font-size:13px;line-height:1.5;border:1px solid rgba(255,255,255,.06)}
+.vf-bot-msg.user .vf-bot-bubble{background:var(--green-bright);color:#0d0f09;border-radius:15px 15px 5px 15px;border-color:transparent}
+.vf-bot-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.vf-bot-actions button,.vf-bot-chips button{border:1px solid rgba(199,238,108,.35);background:rgba(199,238,108,.07);color:var(--green-bright);border-radius:999px;padding:8px 11px;font-size:11px;cursor:pointer}
+.vf-bot-actions button:hover,.vf-bot-chips button:hover{background:var(--green-bright);color:#0d0f09}
+.vf-bot-chips{display:flex;gap:7px;overflow-x:auto;padding:8px 12px 10px;border-top:1px solid rgba(255,255,255,.04)}
+.vf-bot-chips button{white-space:nowrap;padding:8px 10px}
+.vf-bot-form{display:flex;gap:8px;padding:10px 12px 13px;border-top:1px solid var(--line)}.vf-bot-input{min-width:0;flex:1;border:1px solid rgba(255,255,255,.1);border-radius:13px;background:#11150c;color:var(--text);padding:11px 12px;outline:none;font:inherit;font-size:13px}.vf-bot-input:focus{border-color:rgba(199,238,108,.55)}.vf-bot-form>button{width:42px;border:0;border-radius:13px;background:var(--green-bright);color:#0d0f09;font-size:20px;cursor:pointer}
+@media(max-width:600px){#vf-bot-root{right:14px;bottom:14px}.vf-bot-launch{width:58px;height:58px}.vf-bot-panel{width:calc(100vw - 28px);height:min(600px,calc(100vh - 30px))}}
