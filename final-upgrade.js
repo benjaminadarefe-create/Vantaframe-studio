@@ -9,12 +9,15 @@
   }
 
   const contact=document.querySelector(".contact-links");
+  const inquiryMessage="Hi Vantaframe Studio, I found you through your website and I'm interested in getting an AI advertisement for my business. I'd like to know more about your services, pricing, and how we can get started.";
+  const whatsappUrl="https://wa.me/2348102992744?text="+encodeURIComponent(inquiryMessage);
+  const emailUrl="mailto:benjaminadarefe@gmail.com?subject="+encodeURIComponent("AI Advertisement Inquiry")+"&body="+encodeURIComponent(inquiryMessage);
   if(contact){
     contact.classList.add("vf-icon-links");
     contact.innerHTML=[
-      '<a class="vf-icon-btn" href="mailto:benjaminadarefe@gmail.com?subject=AI%20Advertisement%20Inquiry&body=Hi%20Vantaframe%20Studio%2C%20I%20found%20you%20through%20your%20website%20and%20I%E2%80%99m%20interested%20in%20getting%20an%20AI%20advertisement%20for%20my%20business.%20I%E2%80%99d%20like%20to%20know%20more%20about%20your%20services%2C%20pricing%2C%20and%20how%20we%20can%20get%20started." aria-label="Email" title="Email">'+makeIcon("email")+"</a>",
+      '<a class="vf-icon-btn" href="'+emailUrl+'" aria-label="Email" title="Email">'+makeIcon("email")+"</a>",
       '<a class="vf-icon-btn" href="https://www.instagram.com/_vantaframestudio_?stkn=cmJqMzNidmhxMHB2&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram">'+makeIcon("instagram")+"</a>",
-      '<a class="vf-icon-btn" href="https://wa.me/2348102992744?text=Hi%20Vantaframe%20Studio%2C%20I%20found%20you%20through%20your%20website%20and%20I%E2%80%99m%20interested%20in%20getting%20an%20AI%20advertisement%20for%20my%20business.%20I%E2%80%99d%20like%20to%20know%20more%20about%20your%20services%2C%20pricing%2C%20and%20how%20we%20can%20get%20started." target="_blank" rel="noreferrer" aria-label="WhatsApp" title="WhatsApp">'+makeIcon("whatsapp")+"</a>"
+      '<a class="vf-icon-btn" href="'+whatsappUrl+'" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">'+makeIcon("whatsapp")+"</a>"
     ].join("");
   }
 
