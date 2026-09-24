@@ -1,0 +1,108 @@
+
+/* Vantaframe Studio — final visual upgrade
+   Added as an override layer so the existing video sources/content stay untouched. */
+:root{
+  --bg:#0d0f09;
+  --surface:#15180f;
+  --text:#f3f4ec;
+  --muted:#9aa090;
+  --line:rgba(255,255,255,.09);
+  --green:#8bbb2f;
+  --green-bright:#c7ee6c;
+  --dark:#080a05;
+  --shadow:0 24px 70px rgba(0,0,0,.45);
+}
+html,body{background:var(--bg)!important;color:var(--text)!important}
+body{font-family:"DM Sans",sans-serif}
+body:before{opacity:.025!important}
+::selection{background:var(--green)!important;color:#fff!important}
+
+/* Cinematic navigation */
+.nav{background:rgba(13,15,9,.78)!important;border-color:transparent!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.nav.scrolled{background:rgba(13,15,9,.94)!important;border-color:var(--line)!important;box-shadow:0 10px 30px rgba(0,0,0,.3)!important}
+.brand{font-family:"Space Grotesk"!important}
+nav{color:var(--muted)!important}
+nav a:after{background:var(--green-bright)!important}
+.nav-cta{border-color:rgba(255,255,255,.18)!important}
+.nav-cta:hover{background:var(--green-bright)!important;border-color:var(--green-bright)!important;color:#0d0f09!important}
+
+/* Hero */
+.hero{background:radial-gradient(circle at 84% 18%,rgba(139,187,47,.16) 0,transparent 32%),linear-gradient(135deg,#0d0f09,#12160c)!important;position:relative;overflow:hidden}
+.hero:after{border-color:rgba(199,238,108,.12)!important}
+.eyebrow{color:var(--green-bright)!important}
+.hero h1,.section h2,.contact h2,.category-heading h3,.work-info h3,.cap-feature h3{font-family:"Space Grotesk",sans-serif}
+.hero h1 em,.section h2 em,.category-heading h3 em,.contact h2 em{color:var(--green-bright)!important}
+.hero-text,.section-head>p,.category-heading>p,.work-info p,.about>div:last-child>p,.contact-note{color:var(--muted)!important}
+.primary{background:var(--green-bright)!important;color:#0d0f09!important}
+
+/* Floating bubbles/particles */
+.hero-particle,.orb{pointer-events:none}
+.hero-particle{background:var(--green-bright)!important;opacity:.35}
+.orb{opacity:.28!important}
+
+/* Keep the existing homepage videos, but make the featured one visually central. */
+.hero-visual{position:relative;min-height:620px}
+.hero-media{position:absolute!important;display:block!important;overflow:hidden;border:1px solid rgba(199,238,108,.55)!important;border-radius:8px!important;background:#10140c!important;box-shadow:0 24px 70px rgba(0,0,0,.45),0 0 0 1px rgba(199,238,108,.08)!important;z-index:2;transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease}
+.hero-media video{display:block;width:100%;height:100%;object-fit:cover}
+.hero-media-one{width:min(68%,500px)!important;height:min(72%,390px)!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:4!important}
+.hero-media-two{width:30%!important;height:38%!important;left:2%!important;top:10%!important;opacity:.58;z-index:2!important;transform:rotate(-5deg)!important}
+.hero-media-three{width:30%!important;height:38%!important;right:2%!important;bottom:10%!important;opacity:.58;z-index:2!important;transform:rotate(5deg)!important}
+.hero-media:hover{box-shadow:0 34px 85px rgba(0,0,0,.58),0 0 0 1px rgba(199,238,108,.3)!important}
+.hero-media-one:hover{transform:translate(-50%,-50%) scale(1.015)!important}
+
+/* Green frame around every portfolio video — always visible, not just on hover. */
+.work-image.video-card{
+  border:1px solid rgba(199,238,108,.72)!important;
+  box-shadow:0 16px 45px rgba(0,0,0,.3),0 0 0 1px rgba(199,238,108,.08)!important;
+  background:#10140c!important;
+}
+.work-image.video-card:before{
+  content:""!important;position:absolute!important;inset:0!important;border-radius:inherit!important;
+  padding:1px!important;background:linear-gradient(135deg,var(--green-bright),transparent 38%,transparent 62%,var(--green))!important;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0)!important;
+  -webkit-mask-composite:xor!important;mask-composite:exclude!important;
+  opacity:.8!important;z-index:3!important;pointer-events:none!important;
+}
+.video-card:after{background:linear-gradient(180deg,rgba(0,0,0,.24),transparent 35%,transparent 70%,rgba(0,0,0,.22))!important}
+.video-sheen{opacity:.9}
+.play-glyph{color:#fff!important}
+
+/* Portfolio sections */
+.work,.services,.about{background:var(--bg)!important}
+.services{border-top-color:var(--line)!important}
+.about{border-top-color:var(--line)!important}
+.category-heading{border-bottom-color:var(--line)!important}
+.cap-feature{background:var(--surface)!important;border-color:var(--line)!important}
+.cap-feature:hover{border-color:var(--green-bright)!important}
+.cap-feature .cap-tag{color:var(--green-bright)!important}
+.about-mark{color:rgba(199,238,108,.14)!important}
+
+/* Contact icons */
+.contact{background:linear-gradient(135deg,#0f1a0a,#0a0f07)!important;color:#f5f8ef!important}
+.contact-links.vf-icon-links{display:flex!important;justify-content:center!important;gap:18px!important;margin:0 0 22px!important}
+.vf-icon-btn{
+  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:var(--green-bright);color:#0d0f09!important;
+  box-shadow:0 10px 26px rgba(199,238,108,.22);
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease;
+}
+.vf-icon-btn:hover{transform:translateY(-4px) scale(1.07);box-shadow:0 18px 42px rgba(199,238,108,.4)}
+.vf-icon-btn svg{width:26px;height:26px}
+
+/* Cinematic sheen and subtle motion */
+.work-card:hover{transform:translateY(-7px)}
+@keyframes vfPulse{0%,100%{box-shadow:0 10px 26px rgba(199,238,108,.16)}50%{box-shadow:0 14px 38px rgba(199,238,108,.32)}}
+.vf-icon-btn{animation:vfPulse 3s ease-in-out infinite}
+
+/* Mobile */
+@media(max-width:800px){
+  .hero{padding-top:12vw!important}
+  .hero-visual{min-height:500px!important}
+  .hero-media-one{width:78%!important;height:52%!important}
+  .hero-media-two{width:29%!important;height:28%!important;left:0!important;top:4%!important}
+  .hero-media-three{width:29%!important;height:28%!important;right:0!important;bottom:4%!important}
+  .contact-links.vf-icon-links{gap:14px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .vf-icon-btn{animation:none!important}
+}
